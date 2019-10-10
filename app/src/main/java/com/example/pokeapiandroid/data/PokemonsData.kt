@@ -8,6 +8,7 @@ import retrofit2.Callback
 import retrofit2.Response
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import kotlin.math.log
 
 class PokemonsData {
     //Url base https://pokeapi.co/api/v2/
@@ -19,21 +20,20 @@ class PokemonsData {
     var service = retrofit.create<PokeApi>(PokeApi::class.java)
 
 
-
-
     fun getAllPokemons(): List<Pokemons> {
-      val    call: Call<List<Pokemons>> = service.getAllPokemons()
-     val pokemons :  List<Pokemons> = call.execute().body().orEmpty()
+        val call: Call<List<Pokemons>> = service.getAllPokemons()
+        val pokemons: List<Pokemons> = call.execute().body().orEmpty()
+        Log.d("Pokemon---------->", pokemons.toString())
         return pokemons// se retorna una lista de pokemons
 
     }//end of getAllPokemons function
 
     fun getOnePokemon(id: Int) {
-         var pokemon:Pokemons?
-        service.getPokemonById(id).enqueue(object : Callback<Pokemons>{
+        var pokemon: Pokemons?
+        service.getPokemonById(id).enqueue(object : Callback<Pokemons> {
             override fun onResponse(call: Call<Pokemons>?, response: Response<Pokemons>?) {
                 pokemon = response?.body()
-                Log.d("Pokemon",Gson().toJson(pokemon))
+                Log.d("Pokemon", Gson().toJson(pokemon))
             }
 
             override fun onFailure(call: Call<Pokemons>, t: Throwable) {
