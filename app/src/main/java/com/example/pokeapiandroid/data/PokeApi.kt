@@ -1,5 +1,6 @@
 package com.example.pokeapiandroid.data
 
+import com.example.pokeapiandroid.userInterface.model.GetPokemonResponse
 import com.example.pokeapiandroid.userInterface.model.Pokemons
 import retrofit2.Call
 import retrofit2.http.GET
@@ -11,7 +12,7 @@ interface PokeApi{
 
     //Obtener todos los pokemons
     @GET("pokemon/")
-    fun getAllPokemons():Call<List<Pokemons>>
+    fun getAllPokemons():Call<GetPokemonResponse>
 
     //Obtener un solo pokemon
     @GET("pokemon/{id}")

@@ -2,9 +2,12 @@ package com.example.pokeapiandroid.userInterface.model
 
 data class Pokemons (
     //consumir la api de pokemon llamada "PokeApi"
+
+
     var id:Int = 0,
     var num:String? = null,
     var name:String? = null,
+    var url: String? = null,
     var img:String? = null,
     var type:List<String>? = null,
     var height:String? = null,

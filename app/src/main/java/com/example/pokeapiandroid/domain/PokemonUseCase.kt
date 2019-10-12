@@ -5,10 +5,6 @@ import com.example.pokeapiandroid.userInterface.model.Pokemons
 
 class PokemonUseCase {
 
-    private  val pokemonDataSet = PokemonsData()
 
-    fun getAllPokemons():List<Pokemons>{
-        return pokemonDataSet.getAllPokemons()
-    }
 
  }

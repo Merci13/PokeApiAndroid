@@ -25,6 +25,7 @@ android {
 
 dependencies {
     def lifecycle_version = "2.0.0"
+    def recyclerview_version = "1.0.0"
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
     implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
@@ -39,6 +40,11 @@ dependencies {
 
     //gson --> convierte de json a objetos
     implementation 'com.google.code.gson:gson:2.8.5'
+
+
+    //recycler view --->recicla vistas
+    implementation "androidx.recyclerview:recyclerview:$recyclerview_version"
+    //
 
     //--------------------------------------------//
     testImplementation 'junit:junit:4.12'
