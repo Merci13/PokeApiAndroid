@@ -26,7 +26,9 @@ class MainActivity : AppCompatActivity() {
 
         viewModel = ViewModelProviders.of(this).get(PokeViewModel::class.java)
         adaptadorCustom = AdaptadorCustom(listOf())
-        //Recycle View
+
+
+        //----------Recycle View-------------------//
         list = findViewById(R.id.pokemon)
         layaoutManager = LinearLayoutManager(this)
         list?.layoutManager = layaoutManager
@@ -34,12 +36,15 @@ class MainActivity : AppCompatActivity() {
 
         //-----------------------------------------//
         val pokemonObserver = Observer<List<Pokemons>>{listPokemons ->
+
             for (pokemon in listPokemons){
                     Log.d("Pokemon------->", pokemon.name )
             }
             for ((index : Int, value : Pokemons) in listPokemons.withIndex()){
                     Log.d("Pokemmon $index---->",value.name)
             }
+
+            //se recoje los datos para mostrarlos
             adaptadorCustom?.loadNewList(listPokemons)//cargar nueva lista
 
 

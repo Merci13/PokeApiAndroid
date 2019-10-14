@@ -21,12 +21,16 @@ class PokemonsData {
         .build()
     //crear el servicio para hacer las llamadas
     var service = retrofit.create<PokeApi>(PokeApi::class.java)
+    var nextRow : String? = null
 
 
     fun getAllPokemons(): LiveData<List<Pokemons>> {
         val response = MutableLiveData<List<Pokemons>>()
         val call: Call<GetPokemonResponse> = service.getAllPokemons()
-       call.enqueue(object: Callback<GetPokemonResponse>{
+
+
+
+        call.enqueue(object: Callback<GetPokemonResponse>{
             override fun onFailure(call: Call<GetPokemonResponse>, t: Throwable) {
                 response.postValue(listOf())//se declara una lista en blanco
             }
@@ -35,6 +39,9 @@ class PokemonsData {
                 call: Call<GetPokemonResponse>,remoteResponse: Response<GetPokemonResponse>
             ) {
                response.postValue(remoteResponse.body()?.results.orEmpty())//obtiene el cuerpo el cual tiene el valor del response,
+                //obtain the value next from GetPokemonResponse-------------------//
+                nextRow = remoteResponse.body()?.next//si es nulo, decir que ya no hay mas paginas.
+                
             }
 
         })

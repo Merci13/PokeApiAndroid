@@ -9,6 +9,13 @@
 
     >
 
+    <androidx.appcompat.widget.LinearLayoutCompat
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+    </androidx.appcompat.widget.LinearLayoutCompat>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/pokemon"
 
@@ -19,6 +26,12 @@
 
 
     </androidx.recyclerview.widget.RecyclerView>
+
+    <ProgressBar
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+    </ProgressBar>
 
 
 </LinearLayout>

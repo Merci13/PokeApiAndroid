@@ -8,7 +8,15 @@ import retrofit2.http.Path
 
 
 interface PokeApi{
-    //Url base https://pokeapi.co/api/v2/
+/*
+* Interface que va a la url https://pokeapi.co/api/v2/ y consulta por los pokemons que
+*  se encuentren, obtiene la informacion y la devuelve en la funcion getAllPokemons()
+*
+*
+*Interface that will consult the url https://pokeapi.co/api/v2/ and get all pokemons that it found,
+* obtain the data and returned through the function getAllPokemons()
+
+*/
 
     //Obtener todos los pokemons
     @GET("pokemon/")

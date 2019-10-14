@@ -42,7 +42,7 @@ class AdaptadorCustom(list: List<Pokemons>) :
         notifyDataSetChanged()
 
     }
-
+//-------------Clase aparte para el view Holder--------//
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         var view = view
         val textViewPokemon =  view.findViewById<TextView>(R.id.infoPokemo)
